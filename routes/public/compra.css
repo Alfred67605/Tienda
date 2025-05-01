@@ -1,0 +1,60 @@
+/* Fondo azul con degradado */
+body {
+    background: linear-gradient(to bottom, #2a5298, #1e3c72);
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Contenedor */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Tabla de compras */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.25);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Botones de acción */
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para resaltar compras recientes */
+.highlight {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
