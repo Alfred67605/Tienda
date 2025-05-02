@@ -1,3 +1,11 @@
+<?php
+include 'Models/Connection.php';
+
+// Crear instancia y conectar
+$db = new Connection();
+$conexion = $db->connect();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,13 +18,11 @@
     <header class="top-bar">
         <div class="logo">🛒 TIENDA ONLINE</div>
         <nav class="nav-links">
-            <a href="#">Inicio</a>
+            <a href="index.php">Inicio</a>
             <a href="routes/producto_lista.php">Productos</a>
             <a href="routes/cliente_lista.php">Clientes</a>
-            <a href="#">Ofertas</a>
-            <a href="#">Contacto</a>
+            <a href="routes/listado_categorias.php">Categoría</a> 
         </nav>
-        <input type="text" placeholder="Buscar..." class="search-bar">
     </header>
 
     <div class="container">
@@ -33,12 +39,14 @@
                 <a href="routes/agregar_cliente.php" class="btn-add">➕ Agregar Cliente</a>
             </div>
         </aside>
+
         <main class="main-content">
             <section class="banner">
                 <h1>¡Bienvenido a TiendaOnline!</h1>
                 <p>Los mejores productos al mejor precio.</p>
                 <a href="routes/producto_lista.php" class="btn-banner">Explorar Productos</a>
             </section>
+
             <section class="featured-products">
                 <h2>🌟 Productos Destacados</h2>
                 <div class="products-grid">
@@ -64,7 +72,7 @@
                     </div>
                     <div class="product-card">
                         <img src="routes/img/juguete.WEBP" alt="Producto">
-                        <p>Camion de Juguete</p>
+                        <p>Camión de Juguete</p>
                         <span>$1299.99</span>
                     </div>
                     <div class="product-card">
@@ -79,12 +87,11 @@
                     </div>
                 </div>
             </section>
-
-            <footer>
-                <p>&copy; 2025 TiendaOnline - Todos los derechos reservados</p>
-            </footer>
         </main>
     </div>
 
+    <footer>
+        <p>&copy; 2025 TiendaOnline - Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>

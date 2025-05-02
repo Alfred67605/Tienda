@@ -11,6 +11,7 @@
         <h2>Historial de Compras</h2>
         <div class="table-container">
             <table>
+            <a href="../index.php" class="btn-atras">🔙 ATRÁS</a>
                 <thead>
                     <tr>
                         <th>CLIENTE</th>

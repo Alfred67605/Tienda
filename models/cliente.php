@@ -20,23 +20,13 @@ class Cliente extends Connection {
         return ($result->num_rows > 0) ? $result->fetch_assoc() : null;
     }
     public function agregarCliente($nombre, $correo, $telefono, $direccion) {
-
-        $sqlCheck = "SELECT id FROM cliente WHERE correo = ?";
-        $stmtCheck = $this->connection->prepare($sqlCheck);
-        $stmtCheck->bind_param("s", $correo);
-        $stmtCheck->execute();
-        $result = $stmtCheck->get_result();
-
-        if ($result->num_rows > 0) {
-            die("❌ Error: Este correo ya está registrado. Usa otro correo.");
-        }
-
         $sql = "INSERT INTO cliente (nombre, correo, telefono, direccion) VALUES (?, ?, ?, ?)";
         $stmt = $this->connection->prepare($sql);
         $stmt->bind_param("ssss", $nombre, $correo, $telefono, $direccion);
         $stmt->execute();
         return $stmt->insert_id; 
     }
+    
 
     public function actualizarCliente($id, $nombre, $correo, $telefono, $direccion) {
         $sql = "UPDATE cliente SET nombre = ?, correo = ?, telefono = ?, direccion = ? WHERE id = ?";

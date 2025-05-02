@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../routes/public/productos_listas.css">
 
+
 <h1>Lista de Productos</h1>
 <table>
     <tr>
@@ -26,3 +27,4 @@
     </tr>
     <?php endforeach; ?>
 </table>
+<a href="../index.php" class="btn-atras">🔙 ATRÁS</a>

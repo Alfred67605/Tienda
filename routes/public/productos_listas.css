@@ -111,3 +111,21 @@ tbody tr:hover {
 .btn-eliminar:hover {
     background-color: #c82333;
 }
+.btn-atras {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid darkred;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-atras:hover {
+    background-color: darkred;
+    transform: scale(1.1);
+}

@@ -1,7 +1,7 @@
 <?php
-require_once '../controllers/CompraController.php';
+require_once '../models/compra.php';
 
-$compraController = new CompraController();
-$compras = $compraController->obtenerCompras();
-include_once "views/compra_listas.php"
+$compra = new compra();
+$compras = $compra->obtenerCompras();
+include_once "../views/compra_listas.php"
 ?>

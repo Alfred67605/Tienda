@@ -1,8 +1,8 @@
 <?php
-require_once '../controllers/ClienteController.php';
+require_once '../models/cliente.php';
 
-$clienteController = new ClienteController();
-$clientes = $clienteController->obtenerClientes();
-include_once "views/cliente_listas.php"
+$cliente = new cliente();
+$clientes = $cliente->obtenerClientes();
+include_once "../views/cliente_listas.php"
 ?>
 

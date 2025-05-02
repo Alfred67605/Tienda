@@ -1,12 +1,12 @@
 <?php
-require_once '../controllers/ClienteController.php';
-require_once '../controllers/ProductoController.php';
-require_once '../controllers/CompraController.php';
+require_once '../models/cliente.php';
+require_once '../models/producto.php';
+require_once '../models/compra.php';
 
-$clienteController = new ClienteController();
-$productoController = new ProductoController();
-$compraController = new CompraController();
-$productos = $productoController->obtenerProductos();
+$cliente = new cliente();
+$producto = new producto();
+$compra = new compra();
+$productos = $producto->obtenerProductos();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
@@ -16,12 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $producto_id = $_POST['producto_id'];
     $cantidad = $_POST['cantidad'];
 
-    $cliente_id = $clienteController->agregarCliente($nombre, $correo, $telefono, $direccion);
-    $compraController->registrarCompra($cliente_id, $producto_id, $cantidad);
+    $cliente_id = $cliente->agregarCliente($nombre, $correo, $telefono, $direccion);
+    $compra->registrarCompra($cliente_id, $producto_id, $cantidad);
 
     header("Location: cliente_lista.php");
     exit;
 }
-include_once "views/agregar_clientes.php"
+include_once "../views/agregar_clientes.php"
 ?>
 

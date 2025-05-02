@@ -1,7 +1,7 @@
 <?php
-require_once '../controllers/ProductoController.php';
+require_once '../models/producto.php';
 
-$productoController = new ProductoController();
-$productos = $productoController->obtenerProductos();
-include_once "views/productos_listas.php"
+$producto = new producto();
+$productos = $producto->obtenerProductos();
+include_once "../views/productos_listas.php"
 ?>

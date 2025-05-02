@@ -1,10 +1,10 @@
 <?php
-require_once '../controllers/ProductoController.php';
-require_once '../controllers/CategoriaController.php';
+require_once '../models/producto.php';
+require_once '../models/categoria.php';
 
-$productoController = new ProductoController();
-$categoriaController = new CategoriaController();
-$categorias = $categoriaController->obtenerCategorias();
+$producto = new producto();
+$categoria = new categoria();
+$categorias = $categoria->obtenerCategorias();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
@@ -17,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $destino = "img/" . basename($imagen);
     move_uploaded_file($_FILES['imagen']['tmp_name'], $destino);
 
-    $productoController->agregarProducto($nombre, $descripcion, $precio, $categoria_id, $destino);
+    $producto->agregarProducto($nombre, $descripcion, $precio, $categoria_id, $destino);
     header("Location: producto_lista.php");
     exit;
 }
-include_once "views/agregar_productos.php"
+include_once "../views/agregar_productos.php"
 ?>
 

@@ -1,14 +1,17 @@
 <?php
-require_once '../controllers/ClienteController.php';
+require_once '../models/Cliente.php';
 
-$clienteController = new ClienteController();
+$clienteModel = new Cliente(); // Instancia correcta del modelo
 $id = isset($_GET['id']) ? intval($_GET['id']) : null;
 
 if (!$id) {
     die("Error: ID de cliente no válido.");
 }
 
-$cliente = $clienteController->obtenerClientePorID($id);
+$cliente = $clienteModel->obtenerClientePorID($id); // Ahora `$cliente` almacena los datos
+if (!$cliente) {
+    die("Error: Cliente no encontrado.");
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
@@ -16,7 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefono = $_POST['telefono'];
     $direccion = $_POST['direccion'];
 
-    $resultado = $clienteController->actualizarCliente($id, $nombre, $correo, $telefono, $direccion);
+    // Usar la instancia correcta del modelo para actualizar
+    $resultado = $clienteModel->actualizarCliente($id, $nombre, $correo, $telefono, $direccion);
 
     if (!$resultado) {
         echo "<p style='color: red;'>❌ Error al actualizar el cliente.</p>";
@@ -25,6 +29,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
-include_once "views/editar_clientes.php"
-?>
 
+include_once "../views/editar_clientes.php";

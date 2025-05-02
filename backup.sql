@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS cliente (
     telefono VARCHAR(20) DEFAULT NULL,
     direccion TEXT DEFAULT NULL
 );
+ALTER TABLE cliente DROP INDEX correo;
 
 -- Crear tabla producto
 CREATE TABLE IF NOT EXISTS producto (

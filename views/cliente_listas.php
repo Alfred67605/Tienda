@@ -11,6 +11,7 @@
         <h2>Lista de Clientes</h2>
         <div class="table-container">
             <table>
+            <a href="../index.php" class="btn-atras">🔙 ATRÁS</a>
                 <thead>
                     <tr>
                         <th>ID</th>
